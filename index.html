@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaja Soares - Studio Hair</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CONTAINER LUXURY CARD ENVOLVENDO TODO O CONTEÚDO -->
+    <div class="luxury-card">
+        
+        <!-- ELEMENTOS GEOMÉTRICOS DECORATIVOS -->
+        <div class="inner-border"></div>
+        <div class="corner-stripe top-left"></div>
+        <div class="corner-stripe bottom-right"></div>
+
+        <!-- CONTEÚDO DO SITE -->
+        <header>
+            <img src="img/logo05.png" alt="Jaja Soares Studio Hair">
+
+            <div>
+                
+            </div>
+        </header>
+        
+        <main>
+            <div class="gallery">
+                <img src="img/salao04.jpg" alt="Jaja Soares Studio Hair">
+                <img src="img/salao02.jpg" alt="Jaja Soares Studio Hair">
+            </div>
+            
+            <div class="t_services">
+                <h3>Tabela de Preços</h3>
+            </div> 
+
+            <div class="services"> 
+                <ul> 
+                    <li>Corte — R$ 100</li> 
+                    <li>Corte + Escova — R$ 150</li> 
+                    <li>Hidratação — R$ 120</li> 
+                    <li>Hidratação + Escova — R$ 150</li> 
+                    <li>Reconstrução — R$ 150</li> 
+                    <li>Reconstrução + Escova — R$ 200</li> 
+                    <li>Morena Iluminada a partir de — R$ 450</li> 
+                    <li>Mechas a partir de — R$ 550</li> 
+                </ul> 
+                <ul> 
+                    <li>Botox a partir de — R$ 150</li> 
+                    <li>Progressiva a partir de — R$ 200</li> 
+                    <li>Make Básica a partir de — R$ 100</li> 
+                    <li>Make Festa — R$ 250</li> 
+                    <li>Make Madrinha — R$ 350</li> 
+                    <li>Pé e Mão — R$ 75</li> 
+                    <li>Pé — R$ 40</li> 
+                    <li>Mão — R$ 35</li> 
+                </ul> 
+            </div>
+
+            <div class="t_services">
+                <h3>Serviços Exclusivos</h3>
+            </div>
+
+            <div class="services services_exclusivos">
+                <ul>
+                    <li>Sessão de Ozônio — R$ 50</li>
+                    <li>Combo Mechas (Inclui tratamento + escova) — R$ 650</li>
+                    <li>Pacote de Escovas (Inclui Hidratação semanal) — R$ 450</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2933435209216!2d-46.64249964058403!3d-23.557905762228145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59afba4210cf%3A0x77379dff8bd81927!2sJaj%C3%A1%20Soares%20Studio%20Hair!5e0!3m2!1spt-BR!2sbr!4v1785961504605!5m2!1spt-BR!2sbr"
+                width="100%" height="200px" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            
+            <div class="classes">
+                <a href="https://www.instagram.com/jajasoaresstudiohair/" target="_blank" rel="noopener noreferrer">
+                    <img class="cls" src="img/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/jadilson.soares.18" target="_blank" rel="noopener noreferrer">
+                    <img class="cls" src="img/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://wa.me/551194842-6028" target="_blank" rel="noopener noreferrer">
+                    <img class="cls" src="img/whatsapp-removebg-preview.png" alt="WhatsApp">
+                </a>
+            </div>
+            <p>&copy; 2026 Jaja Soares - Studio Hair. Todos os direitos reservados.</p>
+        </footer>
+
+    </div> <!-- FIM DO LUXURY CARD -->
+    <script>
+        function main() {
+            // Get the campaign names from all the campaigns
+            const rows = AdsApp.search('SELECT campaign.name FROM campaign');
+
+            console.log('My campaigns:');
+            // Iterate through the campaigns and print the campaign names
+            for (const row of rows) {
+                console.log(row.campaign.name);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: #000;
+    color: #d4af37; /* Atualizado para o dourado principal */
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 3%; /* Margem fluida externa */
+}
+
+/* CONTAINER PRINCIPAL (MODIFICADO PARA FUNDO SÓLIDO #1F1F1F) */
+.luxury-card {
+    position: relative;
+    width: 100%;
+    max-width: 1000px; /* Alinhamento elegante para computadores */
+    background: #1f1f1f; /* Fundo sólido fosco aplicado aqui */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* MOLDURA DOURADA FIXA NAS BORDAS DO CARTÃO */
+.inner-border {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    right: 2%;
+    bottom: 2%;
+    border: 2px solid #d4af37;
+    pointer-events: none;
+    z-index: 2;
+}
+/* POSICIONAMENTOS GEOMÉTRICOS EM % */
+.top-left {
+    top: 10%;
+    left: -15%;
+    transform: rotate(-35deg);
+    transform-origin: top left;
+}
+
+.bottom-right {
+    bottom: 15%;
+    right: -25%;
+    transform: rotate(-35deg);
+    transform-origin: bottom right;
+}
+
+/* BASE DAS FAIXAS DIAGONAIS */
+.corner-stripe {
+    position: absolute;
+    width: 150%;
+    height: 40px; /* Alturas de linhas decorativas devem ser fixas para não deformar */
+    background: #111111; /* Contraste escuro com o fundo */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid #b8860b;
+    border-bottom: 3px solid #b8860b;
+    z-index: 21;
+}
+
+
+/* CABEÇALHO */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6% 5% 3% 5%;
+    position: relative;
+    z-index: 3;
+}
+
+header img {
+    max-width: 320px; /* Aumentado para destacar melhor a imagem gerada */
+    width: 100%;
+    height: auto;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    padding: 2% 6%;
+    position: relative;
+    z-index: 3;
+}
+
+.t_services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4% 0% 2% 0%;
+}
+
+.t_services h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #d4af37; /* Dourado atualizado */
+    padding-bottom: 5px;
+}
+
+/* GALERIA DE IMAGENS */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 2% 0%;
+}
+
+.gallery img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #d4af37; /* Dourado atualizado */
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.02);
+}
+
+/* SISTEMA DE TABELA DE PREÇOS */
+.services {
+    display: flex;
+    justify-content: space-between;
+    gap: 4%;
+    padding: 2% 0%;
+}
+
+.services ul {
+    width: 48%;
+    list-style: none;
+}
+
+.services ul li {
+    padding: 3% 0%;
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.3); /* Linha tracejada em dourado */
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* SERVIÇOS EXCLUSIVOS (OCUPA TODA A LARGURA) */
+.services_exclusivos {
+    justify-content: center;
+}
+
+.services_exclusivos ul {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* RODAPÉ */
+footer {
+    padding: 3% 6% 6% 6%;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+footer iframe {
+    border-radius: 8px;
+    border: 1px solid #d4af37; /* Dourado atualizado */
+    margin-bottom: 4%;
+}
+
+.classes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3%;
+}
+
+.cls {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+.cls:hover {
+    transform: scale(1.1);
+}
+
+footer p {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* ADAPTAÇÃO PARA CELULARES (RESPONSIVIDADE) */
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .services ul {
+        width: 100%;
+    }
+
+    .gallery img {
+        height: 250px;
+    }
+
+    .top-left {
+        left: -35%;
+    }
+
+    .bottom-right {
+        right: -55%;
+    }
+}
