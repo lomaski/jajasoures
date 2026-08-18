@@ -1,4 +1,6 @@
-/* RESET E CONFIGURAÇÕES GERAIS */
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +14,7 @@ a {
 
 body {
     background-color: #000;
-    color: #d4af37; /* Atualizado para o dourado principal */
+    color: #d4af37; /* Dourado principal */
     font-family: "Open Sans", sans-serif;
     display: flex;
     justify-content: center;
@@ -21,18 +23,20 @@ body {
     padding: 3%; /* Margem fluida externa */
 }
 
-/* CONTAINER PRINCIPAL (MODIFICADO PARA FUNDO SÓLIDO #1F1F1F) */
+/* ==========================================================================
+   2. ESTRUTURA DO CONTAINER DE LUXO
+   ========================================================================== */
 .luxury-card {
     position: relative;
     width: 100%;
-    max-width: 1000px; /* Alinhamento elegante para computadores */
-    background: #1f1f1f; /* Fundo sólido fosco aplicado aqui */
+    max-width: 1000px; /* Alinhamento para desktops */
+    background: #1f1f1f; /* Fundo sólido fosco */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* MOLDURA DOURADA FIXA NAS BORDAS DO CARTÃO */
+/* Moldura dourada fixa nas bordas do cartão */
 .inner-border {
     position: absolute;
     top: 2%;
@@ -43,51 +47,61 @@ body {
     pointer-events: none;
     z-index: 2;
 }
-/* POSICIONAMENTOS GEOMÉTRICOS EM % */
+
+/* CORREÇÃO DO ERRO: Estilização das faixas geométricas decorativas */
+.corner-stripe {
+    position: absolute;
+    width: 350px;
+    height: 40px;
+    background-color: #d4af37;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Posicionamentos geométricos de fundo */
 .top-left {
-    top: 10%;
-    left: -15%;
+    top: 8%;
+    left: -12%;
     transform: rotate(-35deg);
     transform-origin: top left;
 }
 
 .bottom-right {
-    bottom: 15%;
-    right: -25%;
+    bottom: 8%;
+    right: -20%;
     transform: rotate(-35deg);
     transform-origin: bottom right;
 }
 
-/* BASE DAS FAIXAS DIAGONAIS */
-.corner-stripe {
-    position: absolute;
-    width: 150%;
-    height: 40px; /* Alturas de linhas decorativas devem ser fixas para não deformar */
-    background: #111111; /* Contraste escuro com o fundo */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.5);
-    border-top: 3px solid #b8860b;
-    border-bottom: 3px solid #b8860b;
-    z-index: 21;
-}
-
-
-/* CABEÇALHO */
+/* ==========================================================================
+   3. CABEÇALHO (HEADER ORGANIZADO)
+   ========================================================================== */
 header {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 6% 5% 3% 5%;
+    padding: 6% 6% 2% 6%;
+    gap: 25px;
     position: relative;
     z-index: 3;
 }
 
-header img {
-    max-width: 320px; /* Aumentado para destacar melhor a imagem gerada */
-    width: 100%;
+header .card-perfil {
+    max-width: 220px;
+    height: 220px;
+    border-radius: 50%; /* Mantém o avatar do profissional redondo */
+    margin: 0 auto;
+    border: 2px solid #d4af37;
+}
+
+header img:not(.card-perfil img) {
+    max-width: 260px;
     height: auto;
 }
 
-/* CONTEÚDO PRINCIPAL */
+/* ==========================================================================
+   4. CONTEÚDO PRINCIPAL & TÍTULOS
+   ========================================================================== */
 main {
     padding: 2% 6%;
     position: relative;
@@ -98,39 +112,79 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 4% 0% 2% 0%;
+    margin: 5% 0% 2% 0%;
 }
 
 .t_services h3 {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid #d4af37; /* Dourado atualizado */
+    border-bottom: 1px solid #d4af37;
     padding-bottom: 5px;
 }
 
-/* GALERIA DE IMAGENS */
+/* ==========================================================================
+   5. SISTEMA DE GALERIA & CARDS COM TRANSIÇÃO
+   ========================================================================== */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 2% 0%;
+    gap: 25px;
+    padding: 3% 0%;
 }
 
-.gallery img {
+/* Container de cada foto da galeria */
+.card-perfil {
+    position: relative;
+    width: 100%; /* Fluido de acordo com a coluna do grid */
+    height: 380px; /* Altura ideal de exibição */
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    border: 1px solid #d4af37; /* Borda dourada integrada */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Imagem interna do card */
+.card-perfil img {
     width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #d4af37; /* Dourado atualizado */
-    transition: transform 0.3s ease;
+    height: 100%;
+    object-fit: cover; /* Evita que o rosto ou roupas fiquem esticados */
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.02);
+/* Película de Vinheta (Gradiente Radial) */
+.card-perfil .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Centro limpo e bordas escuras profundas */
+    background: radial-gradient(circle, transparent 40%, rgba(31, 31, 31, 0.95) 100%);
+    opacity: 0.4; /* Opacidade inicial suave */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none; /* Cliques passam direto para a imagem */
 }
 
-/* SISTEMA DE TABELA DE PREÇOS */
+/* --- EFEITOS HOVER --- */
+
+/* Aproxima a foto e realça o contraste do couro/detalhes */
+.card-perfil:hover img {
+    transform: scale(1.06);
+    filter: contrast(1.18) brightness(1.03);
+}
+
+/* Escurece as bordas, focando a luz no centro do card */
+.card-perfil:hover .overlay {
+    opacity: 0.85;
+    transform: scale(1.06); /* Sincroniza o movimento com a imagem */
+}
+
+/* ==========================================================================
+   6. SISTEMA DE TABELA DE PREÇOS
+   ========================================================================== */
 .services {
     display: flex;
     justify-content: space-between;
@@ -145,13 +199,13 @@ main {
 
 .services ul li {
     padding: 3% 0%;
-    border-bottom: 1px dashed rgba(212, 175, 55, 0.3); /* Linha tracejada em dourado */
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.3); /* Linha tracejada dourada */
     font-size: 15px;
     display: flex;
     justify-content: space-between;
 }
 
-/* SERVIÇOS EXCLUSIVOS (OCUPA TODA A LARGURA) */
+/* Serviços Exclusivos (Ocupa toda a largura) */
 .services_exclusivos {
     justify-content: center;
 }
@@ -161,9 +215,11 @@ main {
     max-width: 600px;
 }
 
-/* RODAPÉ */
+/* ==========================================================================
+   7. RODAPÉ
+   ========================================================================== */
 footer {
-    padding: 3% 6% 6% 6%;
+    padding: 4% 6% 6% 6%;
     text-align: center;
     position: relative;
     z-index: 3;
@@ -171,7 +227,7 @@ footer {
 
 footer iframe {
     border-radius: 8px;
-    border: 1px solid #d4af37; /* Dourado atualizado */
+    border: 1px solid #d4af37;
     margin-bottom: 4%;
 }
 
@@ -197,7 +253,9 @@ footer p {
     opacity: 0.7;
 }
 
-/* ADAPTAÇÃO PARA CELULARES (RESPONSIVIDADE) */
+/* ==========================================================================
+   8. ADAPTAÇÃO PARA CELULARES (RESPONSIVIDADE)
+   ========================================================================== */
 @media (max-width: 768px) {
     .services {
         flex-direction: column;
@@ -208,15 +266,19 @@ footer p {
         width: 100%;
     }
 
-    .gallery img {
-        height: 250px;
+    .gallery .card-perfil {
+        height: 320px; /* Reduz a altura dos cards na galeria em telas menores */
+    }
+
+    .corner-stripe {
+        width: 250px; /* Encolhe as faixas douradas no celular */
     }
 
     .top-left {
-        left: -35%;
+        left: -25%;
     }
 
     .bottom-right {
-        right: -55%;
+        right: -35%;
     }
 }

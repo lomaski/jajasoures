@@ -20,18 +20,25 @@
         <div class="corner-stripe bottom-right"></div>
 
         <!-- CONTEÚDO DO SITE -->
-        <header>
-            <img src="img/logo05.png" alt="Jaja Soares Studio Hair">
-
-            <div>
-                
+        <header style="display: flex; flex-direction: column; align-items: center; padding: 4% 6% 0 6%; gap: 20px;">
+            <div class="card-perfil">
+                <img src="img/IMG-20260818-WA1334.jpg" alt="Homem com jaqueta de couro">
+                <div class="overlay"></div>
             </div>
+            <img src="img/logo05.png" alt="Jaja Soares Studio Hair">
         </header>
         
         <main>
+            <!-- GALERIA CORRIGIDA: Imagens agora envelopadas na estrutura correta do efeito -->
             <div class="gallery">
-                <img src="img/salao04.jpg" alt="Jaja Soares Studio Hair">
-                <img src="img/salao02.jpg" alt="Jaja Soares Studio Hair">
+                <div class="card-perfil">
+                    <img src="img/salao04.jpg" alt="Ambiente Jaja Soares Studio Hair">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-perfil">
+                    <img src="img/salao02.jpg" alt="Estrutura Jaja Soares Studio Hair">
+                    <div class="overlay"></div>
+                </div>
             </div>
             
             <div class="t_services">
@@ -95,17 +102,6 @@
         </footer>
 
     </div> <!-- FIM DO LUXURY CARD -->
-    <script>
-        function main() {
-            // Get the campaign names from all the campaigns
-            const rows = AdsApp.search('SELECT campaign.name FROM campaign');
 
-            console.log('My campaigns:');
-            // Iterate through the campaigns and print the campaign names
-            for (const row of rows) {
-                console.log(row.campaign.name);
-            }
-        }
-    </script>
 </body>
 </html>
