@@ -275,10 +275,12 @@ footer p {
     }
 
     .top-left {
-        left: -25%;
+        left: -13%;
+        top: 4%;
     }
 
     .bottom-right {
-        right: -35%;
+        right: -17%;
+        bottom: 4%
     }
 }
